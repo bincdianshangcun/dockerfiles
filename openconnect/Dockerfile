@@ -8,6 +8,11 @@ RUN apt-get update && \
     rm -rf /var/cache/apt/* && \
     rm -rf /var/lib/apt/lists/*
 
+
+COPY iptables.up.rules /etc/iptables.up.rules
+COPY iptables.up /etc/network/if-pre-up.d/iptables
+
+
 COPY run.sh /run.sh
 RUN chmod 0755 /run.sh
 
